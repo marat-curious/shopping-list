@@ -1,0 +1,26 @@
+{
+  "name": "shopping-list-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "check": "eslint ./src/**",
+    "convert": "babel src --out-dir dist",
+    "start": "npm run check && npm run convert && node ./dist/server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marat",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "eslint": "^4.10.0"
+  }
+}
