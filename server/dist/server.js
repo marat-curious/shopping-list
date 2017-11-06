@@ -8,21 +8,21 @@ var _bodyParser = require('body-parser');
 
 var _bodyParser2 = _interopRequireDefault(_bodyParser);
 
+var _routes = require('./routes');
+
+var _routes2 = _interopRequireDefault(_routes);
+
+var _db = require('./db');
+
+var _db2 = _interopRequireDefault(_db);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var server = (0, _express2.default)();
+var port = process.env.PORT || 8000;
 
 server.use(_bodyParser2.default.urlencoded({ extended: true }));
 server.use(_bodyParser2.default.json());
-
-var port = process.env.PORT || 8000;
-
-var router = _express2.default.Router();
-
-router.get('/', function (req, res) {
-  res.json({ message: 'Server Response OK' });
-});
-
-server.use('/api', router);
+server.use('/api', _routes2.default);
 
 server.listen(port);

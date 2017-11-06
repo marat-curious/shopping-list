@@ -1,18 +1,14 @@
 //@flow
 import express from 'express'
 import bodyParser from 'body-parser'
+import router from './routes'
+import db from './db'
 
 let server = express()
+let port = process.env.PORT || 8000
 
 server.use(bodyParser.urlencoded({extended: true}))
 server.use(bodyParser.json())
-
-let port = process.env.PORT || 8000
-
-let router = express.Router()
-
-router.get('/', (req, res) => { res.json({message: 'Server Response OK'})})
-
 server.use('/api', router)
 
 server.listen(port)

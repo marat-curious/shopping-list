@@ -6,7 +6,8 @@
   "scripts": {
     "check": "eslint ./src/**",
     "convert": "babel src --out-dir dist",
-    "start": "npm run check && npm run convert && node ./dist/server",
+    "devStart": "npm run check && npm run convert && node ./dist/server",
+    "start": "node ./dist/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Marat",
