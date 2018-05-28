@@ -1,14 +1,14 @@
-//@flow
-import express from 'express'
-import bodyParser from 'body-parser'
-import router from './routes'
-import db from './db'
+// @flow
+import express from 'express';
+import bodyParser from 'body-parser';
+import router from './routes';
+import db from './db';
 
-let server = express()
-let port = process.env.PORT || 8000
+let server = express();
+let port = process.env.PORT || 8000;
 
-server.use(bodyParser.urlencoded({extended: true}))
-server.use(bodyParser.json())
-server.use('/api', router)
+server.use(bodyParser.urlencoded({extended: true}));
+server.use(bodyParser.json());
+server.use('/api', router);
 
-server.listen(port)
+server.listen(port);
