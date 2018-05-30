@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "install": "node ./dist/server/install.js",
     "check": "eslint ./src/**",
     "convert": "babel src --out-dir dist",
     "devStart": "npm run check && npm run convert && node ./dist/server",
@@ -15,13 +16,13 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
-    "mysql": "^2.15.0"
+    "mongodb": "^3.1.0-beta4"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
-    "babel-eslint": "^8.0.1",
-    "babel-preset-env": "^1.6.1",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-flow": "^6.23.0",
-    "eslint": "^4.10.0"
+    "eslint": "^4.19.1"
   }
 }
