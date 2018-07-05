@@ -1,6 +1,6 @@
-# Start Docker Container
+# Start Docker Containers
 
-`docker run --name shopping-list-db -e MYSQL_ROOT_PASSWORD=[password] -d mysql`
+docker-compose up -d
 
 # Enter Docker Container
 
