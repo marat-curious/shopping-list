@@ -1,0 +1,17 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    env_file:
+    - ./Docker/.env
+    restart: always
+  node:
+    image: node
+    user: 'node'
+    working_dir: /home/node/app
+    environment:
+    - NODE_ENV=development
+    volumes:
+    - ./server:/home/node/app
+    expose:
+    - '8080'
