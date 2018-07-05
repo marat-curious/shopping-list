@@ -11,7 +11,10 @@ services:
     working_dir: /home/node/app
     environment:
     - NODE_ENV=development
+    - DBHOST=db
     volumes:
     - ./server:/home/node/app
     expose:
     - '8080'
+    links:
+    - db:db
