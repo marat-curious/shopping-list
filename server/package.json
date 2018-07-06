@@ -7,7 +7,7 @@
     "install": "node ./dist/server/install.js",
     "check": "eslint ./src/**",
     "convert": "babel src --out-dir dist",
-    "devStart": "npm run check && npm run convert && node ./dist/server",
+    "dev": "npm run check && npm run convert && node ./dist/server",
     "start": "node ./dist/server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
