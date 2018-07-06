@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 services:
   db:
     image: mysql
@@ -7,16 +7,19 @@ services:
     restart: always
     volumes:
     - ./db/init:/docker-entrypoint-initdb.d
+    - ./db/mysql:/var/lib/mysql
   node:
     image: node
-    user: 'node'
+    user: "node"
     working_dir: /home/node/app
     environment:
     - NODE_ENV=development
     - DBHOST=db
     volumes:
     - ./server:/home/node/app
-    expose:
-    - '8080'
+    - ./server/node_modules:/home/node/app/node_modules
+    ports:
+    - "8000:8000"
     links:
     - db:db
+    command: "npm run dev"
