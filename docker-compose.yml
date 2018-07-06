@@ -5,6 +5,8 @@ services:
     env_file:
     - ./Docker/.env
     restart: always
+    volumes:
+    - ./db/init:/docker-entrypoint-initdb.d
   node:
     image: node
     user: 'node'
