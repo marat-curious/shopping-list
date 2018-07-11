@@ -1,13 +1,12 @@
 // @flow
 
 import mysql from 'mysql';
-import config from './config';
 
 const connection = mysql.createConnection({
-  host: config.db.host,
-  user: config.db.user,
-  password: config.db.password,
-  database: config.db.name
+  host: process.env.DBHOST || 'localhost',
+  user: process.env.MYSQL_USER,
+  password: process.env.MYSQL_PASSWORD,
+  database: process.env.MYSQL_DATABASE
 });
 
 connection.connect((err) => {
