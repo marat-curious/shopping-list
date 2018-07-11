@@ -1,8 +1,0 @@
-export default {
-  db: {
-    host: 'process.env.DBHOST || localhost',
-    name: [DATABASE],
-    user: [USER],
-    password: [PASSWORD]
-  }
-};
