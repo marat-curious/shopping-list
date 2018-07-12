@@ -1,13 +1,12 @@
 version: "3"
 services:
   db:
-    image: mysql
+    image: mongo
     env_file:
     - ./Docker/.env
     restart: always
     volumes:
-    - ./db/init:/docker-entrypoint-initdb.d
-    - ./db/mysql:/var/lib/mysql
+    - ./db:/data/db
     expose:
     - "3306"
   node:
