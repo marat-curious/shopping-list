@@ -24,4 +24,4 @@ services:
     - db:db
     depends_on:
     - "db"
-    command: "npm run dev"
+    command: "npm run watch"
