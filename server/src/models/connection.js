@@ -9,16 +9,24 @@ const database = process.env.MONGO_INITDB_DATABASE;
 
 const url = 'mongodb://user:pass@host:27017/admin';
 
-async function connect (error, operation) {
+exports.connect = async () => {
   try {
     const client = await MongoClient.connect (url, {useNewUrlParser: true});
-    console.log("Connected successfully to server");
-    const db = client.db(database);
-    return db;
-    });
+    console.log('Connected successfully to server');
+    return client;
   } catch(err) {
     return err.stack;
   }
 };
 
+exports.close = client => {
+  try {
+    client.close();
+    console.log('Connection to server closed');
+    return true;
+  } catch(err) {
+    return err;
+  }
+};
 
+exports.db = client => client.db(database);

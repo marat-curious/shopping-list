@@ -1,14 +1,11 @@
 // @flow
 
 import express from 'express';
+import shop from './shop';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json({
-    'message': 'Server Response OK',
-    'process.env.DBHOST': process.env.DBHOST
-  })
-});
+router.get('/shop', shop.getShops);
+//router.post('/shop', shop.setShop);
 
 module.exports = router;
