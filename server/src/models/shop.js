@@ -1,6 +1,5 @@
 // @flow
 
-/*
 import * as connection from './connection';
 
 const setShop = async name => {
@@ -18,7 +17,6 @@ const setShop = async name => {
   connection.close(client);
   return response;
 };
-*/
 
 const getShops = () => ({test: 'test'});
 
