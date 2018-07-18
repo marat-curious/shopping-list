@@ -2,37 +2,19 @@
 
 import { MongoClient } from 'mongodb';
 
-const user = process.env.MONGO_INITDB_ROOT_USERNAME;
-const pass = process.env.MONGO_INITDB_ROOT_PASSWORD;
 const host = process.env.DBHOST;
 const database = process.env.MONGO_INITDB_DATABASE;
+const user = process.env.MONGO_INITDB_USERNAME;
+const pass = process.env.MONGO_INITDB_PASSWORD;
 
-const url = 'mongodb://user:pass@host:27017/admin';
+const url = `mongodb://${user}:${pass}@${host}:27017/${database}`;
 
-const connect = async () => {
+exports.connect = async () => {
   try {
     const client = await MongoClient.connect (url, {useNewUrlParser: true});
-    console.log('Connected successfully to server');
-    return client;
-  } catch(err) {
-    return err.stack;
+    const db = client.db(database);
+    return { client, db };
+  } catch (err) {
+    throw new Error(err);
   }
-};
-
-const close = client => {
-  try {
-    client.close();
-    console.log('Connection to server closed');
-    return true;
-  } catch(err) {
-    return err;
-  }
-};
-
-const db = client => client.db(database);
-
-module.exports = {
-  connect,
-  close,
-  db
 };

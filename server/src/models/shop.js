@@ -1,26 +1,66 @@
 // @flow
 
-import * as connection from './connection';
+import connection from './connection';
 
-const setShop = async name => {
-  const client = await connection.connect;
-  const db = connection.db(client);
-
-  let response = null;
-
+const get = async () => {
   try {
-    response = await db.collection('shops').insetOne({ name });
-  } catch(err) {
-    response = err;
+    const { client, db } = await connection.connect();
+    const collection = db.collection('shop');
+    const response = await collection.find().toArray();
+    client.close();
+    return response;
+  } catch (error) {
+    return error;
   }
-
-  connection.close(client);
-  return response;
 };
 
-const getShops = () => ({test: 'test'});
+const add = async name => {
+  try {
+    const { client, db } = await connection.connect();
+    const collection = db.collection('shop');
+    const shop = await collection.findOne({ name });
+    let response;
+
+    if (shop) {
+      response = { err: `record { name: ${name} } already exist in 'shop' collection` };
+    } else {
+      response = await db.collection('shop').insertOne({ name });
+    }
+
+    client.close();
+    return response;
+  } catch(error) {
+    return error;
+  }
+};
+
+const del = async name => {
+  try {
+    const { client, db } = await connection.connect();
+    const collection = db.collection('shop');
+    const response  = await collection.findOneAndDelete({ name });
+    client.close();
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+const update = async name => {
+  try {
+    const { client, db } = await connection.connect();
+    const collection = db.collection('shop');
+    const response  = await collection.findOneAndUpdate({ name: name.current }, { $set: { name: name.new }});
+    client.close();
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
 
 module.exports = {
-  getShops,
-  //setShop
+  get,
+  add,
+  del,
+  update
 };

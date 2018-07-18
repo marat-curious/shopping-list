@@ -1,11 +1,14 @@
 // @flow
 
 import express from 'express';
-import shop from './shop';
+import controllers from '../controllers';
 
 const router = express.Router();
 
-router.get('/shop', shop.getShops);
-//router.post('/shop', shop.setShop);
+router.route('/shop')
+  .get(controllers.shop.get)
+  .post(controllers.shop.add)
+  .delete(controllers.shop.del)
+  .put(controllers.shop.update);
 
 module.exports = router;
