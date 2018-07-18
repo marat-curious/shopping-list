@@ -6,7 +6,8 @@ services:
     - ./Docker/.env
     restart: always
     volumes:
-    - ./db:/data/db
+    - ./db/mongo:/data/db
+    - ./db/init:/docker-entrypoint-initdb.d
   node:
     image: node
     user: "node"
