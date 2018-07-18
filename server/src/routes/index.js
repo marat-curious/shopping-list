@@ -11,4 +11,10 @@ router.route('/shop')
   .delete(controllers.shop.del)
   .put(controllers.shop.update);
 
+router.route('/category')
+  .get(controllers.category.get)
+  .post(controllers.category.add)
+  .delete(controllers.category.del)
+  .put(controllers.category.update);
+
 module.exports = router;
