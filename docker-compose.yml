@@ -12,6 +12,7 @@ services:
     image: node
     user: "node"
     working_dir: /home/node/app
+    restart: always
     env_file:
     - ./Docker/.env
     environment:
