@@ -8,7 +8,7 @@ services:
     volumes:
     - ./db/mongo:/data/db
     - ./db/init:/docker-entrypoint-initdb.d
-  node:
+  server:
     image: node
     user: "node"
     working_dir: /home/node/app
@@ -27,3 +27,14 @@ services:
     depends_on:
     - "db"
     command: "npm run watch"
+  client:
+    image: node
+    working_dir: /home/node/app
+    restart: always
+    volumes:
+    - ./client:/home/node/app
+    ports:
+    - "3000:3000"
+    depends_on:
+    - "server"
+    command: "npm run start"
