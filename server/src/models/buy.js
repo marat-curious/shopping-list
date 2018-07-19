@@ -12,8 +12,10 @@ const get = async param => {
     const { client, db } = await connection.connect();
     const collection = db.collection('buy');
     let response;
+    let search = {};
+    search[param.name] = { $eq: param.value };
     if (param) {
-      response = await collection.find({ `${param.name}`: { $ed: `$param.value` }}).toArray();
+      response = await collection.find(search).toArray();
     } else {
       response = await collection.find().toArray();
     }
