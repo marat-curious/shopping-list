@@ -23,4 +23,10 @@ router.route('/product')
   .delete(controllers.product.del)
   .put(controllers.product.update);
 
+router.route('/buy')
+  .get(controllers.buy.get)
+  .post(controllers.buy.add)
+  .delete(controllers.buy.del)
+  .put(controllers.buy.update);
+
 module.exports = router;
