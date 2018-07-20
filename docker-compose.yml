@@ -37,4 +37,4 @@ services:
     - "3000:3000"
     depends_on:
     - "server"
-    command: "npm run watch && npm run start"
+    command: "npm run start && npm run watch"
