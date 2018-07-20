@@ -22,7 +22,7 @@ const App = () => (
 
       <hr/>
 
-      <Route path="/" component={Buy}/>
+      <Route exact path="/" component={Buy}/>
       <Route exact path="/shop" component={Shop}/>
       <Route path="/category" component={Category}/>
       <Route path="/product" component={Product}/>
