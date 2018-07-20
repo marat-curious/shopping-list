@@ -8,11 +8,13 @@ import {
 import Shop from './Shop';
 import Category from './Category';
 import Product from './Product';
+import Buy from './Buy';
 
 const App = () => (
   <Router>
     <div>
       <ul>
+        <li><Link to="/">Buy</Link></li>
         <li><Link to="/shop">Shop</Link></li>
         <li><Link to="/category">Category</Link></li>
         <li><Link to="/product">Product</Link></li>
@@ -20,6 +22,7 @@ const App = () => (
 
       <hr/>
 
+      <Route path="/" component={Buy}/>
       <Route exact path="/shop" component={Shop}/>
       <Route path="/category" component={Category}/>
       <Route path="/product" component={Product}/>
