@@ -14,5 +14,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "watch": "node ./scripts/watch.js"
+  },
+  "devDependencies": {
+    "flow-bin": "^0.76.0"
   }
 }
