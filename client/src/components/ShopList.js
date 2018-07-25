@@ -9,7 +9,6 @@ function ShopItem(props) {
 
 class ShopList extends React.Component {
   render() {
-    console.log(this.props.list);
     return (
       <div>
         <h2>SHOP_LIST</h2>

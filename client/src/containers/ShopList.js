@@ -10,7 +10,11 @@ class ShopListContainer extends React.Component {
   };
 
   render() {
-    return <ShopList {...this.props} />
+    if (this.props.list && this.props.list.length > 0) {
+      return <ShopList {...this.props} />;
+    } else {
+      return <div>Loading ...</div>;
+    }
   };
 
 };

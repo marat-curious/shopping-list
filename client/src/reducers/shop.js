@@ -4,11 +4,11 @@ const _initialState = {
 
 const shop = (state = _initialState, action) => {
   switch(action.type) {
-  case 'FETCH_SHOP_LIST_SUCCESS':
+  case 'SHOP_LIST_FETCH_SUCCESS':
     return {
       list: [ ...action.data.data]
     };
-  case 'FETCH_SHOP_LIST_ERROR':
+  case 'SHOP_LIST_FETCH_ERROR':
     return {
       error: action.error
     };
