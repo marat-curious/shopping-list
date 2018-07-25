@@ -1,0 +1,14 @@
+.list {
+  grid-column: 2 / span 4;
+  grid-row: 2;
+}
+
+.list ul {
+  list-style-type: none;
+}
+
+.list li {
+  display: inline-block;
+  height: 4em;
+  line-height: 4em;
+}

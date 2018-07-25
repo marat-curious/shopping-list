@@ -1,5 +1,5 @@
 .page {
   display: grid;
   grid-template-columns: 1rem 3rem auto 3rem 1rem;
-  grid-template-rows: 1rem 3rem auto 3rem 1rem;
+  grid-template-rows: 3rem auto 3rem 1rem;
 }

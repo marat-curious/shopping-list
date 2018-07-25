@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/list.css';
 
 function ShopItem(props) {
   const items = props.items.map((item) =>
@@ -10,7 +11,7 @@ function ShopItem(props) {
 class ShopList extends React.Component {
   render() {
     return (
-      <div>
+      <div className="list">
         <ShopItem items={this.props.list} />
       </div>
     );
