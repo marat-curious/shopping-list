@@ -11,7 +11,6 @@ class ShopList extends React.Component {
   render() {
     return (
       <div>
-        <h2>SHOP_LIST</h2>
         <ShopItem items={this.props.list} />
       </div>
     );
