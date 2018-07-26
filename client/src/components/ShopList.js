@@ -29,7 +29,11 @@ class ShopList extends React.Component {
   render() {
     return (
       <div className="page">
-        <Header title="Название" />
+        <Header
+          title="Название"
+          back
+          add
+        />
         <div className="list">
           <ShopItem items={this.props.list} />
         </div>

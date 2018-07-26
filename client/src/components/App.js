@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 
 import ShopList from '../containers/ShopList';
+import ShopEdit from './ShopEdit';
 import Category from './Category';
 import Product from './Product';
 import Buy from './Buy';
@@ -16,7 +17,8 @@ class App extends React.Component {
       <div>
         <ul>
           <li><Link to="/">Buy</Link></li>
-          <li><Link to="/shop">Shop</Link></li>
+          <li><Link to="/shop">ShopList</Link></li>
+          <li><Link to="/shop/edit">ShopEdit</Link></li>
           <li><Link to="/category">Category</Link></li>
           <li><Link to="/product">Product</Link></li>
         </ul>
@@ -25,6 +27,7 @@ class App extends React.Component {
 
         <Route exact path="/" component={Buy}/>
         <Route exact path="/shop" component={ShopList}/>
+        <Route path="/shop/edit" component={ShopEdit}/>
         <Route path="/category" component={Category}/>
         <Route path="/product" component={Product}/>
       </div>
