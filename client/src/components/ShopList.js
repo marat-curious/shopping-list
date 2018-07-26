@@ -1,6 +1,8 @@
 import React from 'react';
+import Header from './Header';
 import Edit from '../assets/icons/edit.svg';
 import Delete from '../assets/icons/delete.svg';
+import '../styles/page.css';
 import '../styles/list.css';
 
 function ShopItem(props) {
@@ -26,8 +28,11 @@ function ShopItem(props) {
 class ShopList extends React.Component {
   render() {
     return (
-      <div className="list">
-        <ShopItem items={this.props.list} />
+      <div className="page">
+        <Header title="Название" />
+        <div className="list">
+          <ShopItem items={this.props.list} />
+        </div>
       </div>
     );
   }
