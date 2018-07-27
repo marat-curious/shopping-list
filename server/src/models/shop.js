@@ -14,6 +14,18 @@ const get = async () => {
   }
 };
 
+const getById = async id => {
+  try {
+    const { client, db } = await connection.connect();
+    const collection = db.collection('shop');
+    const response = await collection.findOne({ id });
+    client.close();
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
 const add = async name => {
   try {
     const { client, db } = await connection.connect();
@@ -60,6 +72,7 @@ const update = async name => {
 
 module.exports = {
   get,
+  getById,
   add,
   del,
   update

@@ -11,6 +11,9 @@ router.route('/shop')
   .delete(controllers.shop.del)
   .put(controllers.shop.update);
 
+router.route('/shop/:id')
+  .get(controllers.shop.getById);
+
 router.route('/category')
   .get(controllers.category.get)
   .post(controllers.category.add)

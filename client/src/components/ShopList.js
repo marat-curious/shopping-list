@@ -6,11 +6,15 @@ import Delete from '../assets/icons/delete.svg';
 import '../styles/page.css';
 import '../styles/list.css';
 
-const Button = withRouter(({ history, type }) => {
+const Button = withRouter(({ history, type, id }) => {
   return (
     <button
       className={ `list__button list__button_${type}` }
-      onClick={ () => { history.push(`/shop/${type}`) }}
+      onClick={
+        () => type === 'edit'
+          ? history.push(`/shop/${type}/${id}`)
+          : false
+      }
     >
       <img
         src={ type === 'edit' ? Edit : Delete }
@@ -29,9 +33,11 @@ const ShopItem = props => {
       <span className="list__item-name">{item.name}</span>
       <Button
         type="edit"
+        id={item._id}
       />
       <Button
         type="delete"
+        id={item._id}
       />
     </li>
   );

@@ -16,12 +16,10 @@ class ShopEdit extends React.Component {
         >
           <input
             type="text"
-            value="Название"
             className="edit__input"
           />
           <input
             type="text"
-            value=""
             placeholder="TEST"
             className="edit__input"
           />

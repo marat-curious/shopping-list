@@ -7,6 +7,11 @@ const get = async (req, res) => {
   res.json({ data });
 };
 
+const getById = async (req, res) => {
+  const data = await models.shop.getById();
+  res.json({ data });
+};
+
 const add = async (req, res) => {
   const response = await models.shop.add(req.body.name);
   res.json({ response });
@@ -24,6 +29,7 @@ const update = async (req, res) => {
 
 module.exports = {
   get,
+  getById,
   add,
   del,
   update
