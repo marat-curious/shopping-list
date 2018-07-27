@@ -8,27 +8,23 @@ class Header extends React.Component {
     return (
       <header className="header">
         { this.props.back &&
-          <a
-            href="#"
-            className="header__icon header__icon_left"
-          >
+          <button className="header__button header__button_left">
             <img
               src={LeftArrowIcon}
-              alt="Назад"
+              className="header__icon"
+              alt=""
             />
-          </a>
+          </button>
         }
         <h1 className="header_title">{ this.props.title }</h1>
         { this.props.add &&
-          <a
-            href="#"
-            className="header__icon header__icon_right"
-          >
+          <button className="header__button header__button_right">
             <img
               src={PlusIcon}
-              alt="Добавить"
+              className="header__icon"
+              alt=""
             />
-          </a>
+          </button>
         }
       </header>
     );

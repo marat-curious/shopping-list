@@ -8,6 +8,7 @@ class ShopEdit extends React.Component {
         <Header
           title="Название"
           back
+          add
         />
       </div>
     );
