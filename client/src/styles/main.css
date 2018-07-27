@@ -31,3 +31,8 @@ h2 {
 h3 {
   font-size: 1rem;
 }
+
+input,
+textarea {
+  font-size: 1rem;
+}
