@@ -31,8 +31,8 @@ class ShopList extends React.Component {
       <div className="page">
         <Header
           title="Название"
-          back
-          add
+          back="/"
+          add="/shop/add"
         />
         <div className="list">
           <ShopItem items={this.props.list} />

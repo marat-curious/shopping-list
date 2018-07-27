@@ -7,8 +7,7 @@ class ShopEdit extends React.Component {
       <div className="page">
         <Header
           title="Название"
-          back
-          add
+          back="/shop"
         />
       </div>
     );
