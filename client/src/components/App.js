@@ -18,7 +18,6 @@ class App extends React.Component {
         <ul>
           <li><Link to="/">Buy</Link></li>
           <li><Link to="/shop">ShopList</Link></li>
-          <li><Link to="/shop/edit">ShopEdit</Link></li>
           <li><Link to="/category">Category</Link></li>
           <li><Link to="/product">Product</Link></li>
         </ul>
