@@ -62,7 +62,11 @@ const update = async name => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('shop');
-    const response  = await collection.findOneAndUpdate({ name: name.current }, { $set: { name: name.new }});
+    const response  = await collection.findOneAndUpdate(
+      { name: name.current },
+      { $set: { name: name.new }},
+      { returnOriginal: false }
+    );
     client.close();
     return response;
   } catch (error) {
