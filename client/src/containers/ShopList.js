@@ -10,14 +10,20 @@ class ShopListContainer extends React.Component {
   };
 
   render() {
-    if (this.props.list && this.props.list.length > 0) {
-      return (
-        <ShopList {...this.props} />
-      );
-    } else {
+    if (this.props.isFetching) {
       return (
         <div>Loading ...</div>
       );
+    } else {
+      if (this.props.list && this.props.list.length > 0) {
+        return (
+          <ShopList {...this.props} />
+        );
+      } else {
+        return (
+          <div>ERROR</div>
+        );
+      };
     }
   };
 
@@ -25,7 +31,8 @@ class ShopListContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    list: state.shop.list
+    list: state.shop.list,
+    isFetching: state.shop.isListFetching
   };
 };
 
