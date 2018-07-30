@@ -17,11 +17,8 @@ class ShopEdit extends React.Component {
           <input
             type="text"
             className="edit__input"
-          />
-          <input
-            type="text"
-            placeholder="TEST"
-            className="edit__input"
+            placeholder="Название"
+            defaultValue={this.props.item.name ? this.props.item.name : ''}
           />
           <button
             type="submit"
