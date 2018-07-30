@@ -10,7 +10,9 @@ export const _fetchingShopList = () => {
 };
 
 export const fetchShopList = () => async (dispatch) => {
+
   dispatch(_fetchingShopList());
+
   try {
     const data = await axios.get('http://localhost:8000/api/shop');
     return dispatch({
@@ -55,5 +57,16 @@ export const updateShopName = shop => async (dispatch) => {
       type: 'SHOP_ITEM_UPDATE_ERROR',
       error
     });
+  }
+};
+
+export const deleteShop = id => async (dispatch) => {
+  try {
+    const data = await axios.delete('http://localhost:8000/api/shop', { id });
+    if (data.data.data.ok) {
+      dispatch(fetchShopList());
+    }
+  } catch (error) {
+    console.error(error);
   }
 };

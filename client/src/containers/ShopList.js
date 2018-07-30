@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchShopList } from '../actions/shop';
+import { fetchShopList, deleteShop } from '../actions/shop';
 import ShopList from '../components/ShopList';
 
 class ShopListContainer extends React.Component {
@@ -15,7 +15,7 @@ class ShopListContainer extends React.Component {
         <div>Loading ...</div>
       );
     } else {
-      if (this.props.list && this.props.list.length > 0) {
+      if (this.props.list) {
         return (
           <ShopList {...this.props} />
         );
@@ -38,7 +38,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    update: dispatch(fetchShopList())
+    update: dispatch(fetchShopList()),
+    remove: id => dispatch(deleteShop(id))
   };
 };
 
