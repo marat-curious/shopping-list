@@ -42,7 +42,7 @@ export const updateShopItem = item => async (dispatch) => {
 
 export const deleteShopItem = id => async (dispatch) => {
   try {
-    const data = await axios.delete('http://localhost:8000/api/shop', { id });
+    const data = await axios.delete('http://localhost:8000/api/shop', { data: {id} });
     if (data.data.data.ok) {
       dispatch(fetchShopList());
     }

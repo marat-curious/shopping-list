@@ -51,7 +51,7 @@ const del = async id => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('shop');
-    const response  = await collection.findOneAndDelete({ id });
+    const response  = await collection.findOneAndDelete({ _id: new ObjectID(id) });
     client.close();
     return response;
   } catch (error) {
