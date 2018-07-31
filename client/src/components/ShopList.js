@@ -32,7 +32,7 @@ const ShopItem = props => {
     >
       <span className="list__item-name">{item.name}</span>
       <Button
-        type="edit"
+        type="item"
         id={item._id}
       />
       <Button
@@ -52,7 +52,7 @@ class ShopList extends React.Component {
         <Header
           title="Название"
           back="/"
-          add="/shop/add"
+          add="/shop/item/"
         />
         <div className="list">
           <ShopItem
