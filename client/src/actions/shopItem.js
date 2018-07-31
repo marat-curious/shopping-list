@@ -25,12 +25,9 @@ export const fetchShopItem = id => async (dispatch) => {
   }
 };
 
-export const updateShopItem = shop => async (dispatch) => {
+export const updateShopItem = item => async (dispatch) => {
   try {
-    const data = await axios.put(
-      'http://localhost:8000/api/shop',
-      { nameCur: shop._name, nameNew: shop.name }
-    );
+    const data = await axios.put('http://localhost:8000/api/shop', item);
     return dispatch({
       type: 'SHOP_ITEM_UPDATE_SUCCESS',
       data: data.data

@@ -4,22 +4,19 @@ import Header from './Header';
 import Check from '../assets/icons/check_circle.svg';
 import '../styles/edit.css';
 
-class ShopEdit extends React.Component {
+class ShopItem extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { _id: '', _name: '', name: '' };
+
+    console.log(props);
+    this.state = {
+      _id: props.item._id,
+      name: props.item.name
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    this.setState({
-      _id: this.props.item._id,
-      _name: this.props.item.name,
-      name: this.props.item.name
-    });
   }
 
   handleChange(event) {
@@ -66,4 +63,4 @@ class ShopEdit extends React.Component {
   }
 };
 
-export default withRouter(ShopEdit);
+export default withRouter(ShopItem);

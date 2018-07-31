@@ -59,13 +59,13 @@ const del = async id => {
   }
 };
 
-const update = async name => {
+const update = async data => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('shop');
     const response  = await collection.findOneAndUpdate(
-      { name: name.current },
-      { $set: { name: name.new }},
+      { _id: new ObjectID(data._id) },
+      { $set: { name: data.name }},
       { returnOriginal: false }
     );
     client.close();

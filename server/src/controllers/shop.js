@@ -23,7 +23,7 @@ const del = async (req, res) => {
 };
 
 const update = async (req, res) => {
-  const data = await models.shop.update({ current: req.body.nameCur, new: req.body.nameNew});
+  const data = await models.shop.update(req.body);
   res.json({ data });
 }
 
