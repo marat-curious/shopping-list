@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchShopList, deleteShop } from '../actions/shop';
+import { fetchShopList } from '../actions/shopList';
+import { deleteShopItem } from '../actions/shopItem';
 import ShopList from '../components/ShopList';
 
 class ShopListContainer extends React.Component {
@@ -26,20 +27,19 @@ class ShopListContainer extends React.Component {
       };
     }
   };
-
 };
 
 const mapStateToProps = state => {
   return {
-    list: state.shop.list,
-    isFetching: state.shop.isListFetching
+    list: state.shopList.data,
+    isFetching: state.shopList.isFetching
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    update: dispatch(fetchShopList()),
-    remove: id => dispatch(deleteShop(id))
+    update: () => dispatch(fetchShopList()),
+    remove: id => dispatch(deleteShopItem(id))
   };
 };
 
