@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import shop from './shop';
+import shopList from './shopList';
+import shopItem from './shopItem';
 
 export default combineReducers({
-  shop
+  shopList,
+  shopItem
 });
