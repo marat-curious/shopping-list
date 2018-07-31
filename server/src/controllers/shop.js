@@ -8,7 +8,7 @@ const get = async (req, res) => {
 };
 
 const getById = async (req, res) => {
-  const data = await models.shop.getById();
+  const data = await models.shop.getById(req.params.id);
   res.json({ data });
 };
 

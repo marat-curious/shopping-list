@@ -1,5 +1,6 @@
 // @flow
 
+import { ObjectID } from 'mongodb';
 import connection from './connection';
 
 const get = async () => {
@@ -18,7 +19,7 @@ const getById = async id => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('shop');
-    const response = await collection.findOne({ id });
+    const response = await collection.findOne({ _id: new ObjectID(id) });
     client.close();
     return response;
   } catch (error) {
