@@ -6,14 +6,14 @@ import Delete from '../assets/icons/delete.svg';
 import '../styles/page.css';
 import '../styles/list.css';
 
-const Button = withRouter(({ history, type, id, removeItem }) => {
+const Button = withRouter(({ history, type, id, remove }) => {
   return (
     <button
       className={ `list__button list__button_${type}` }
       onClick={
         () => type === 'edit'
           ? history.push(`/shop/${type}/${id}`)
-          : removeItem(id)
+          : remove(id)
       }
     >
       <img
@@ -32,13 +32,13 @@ const ShopItem = props => {
     >
       <span className="list__item-name">{item.name}</span>
       <Button
-        type="item"
+        type="edit"
         id={item._id}
       />
       <Button
         type="delete"
         id={item._id}
-        removeItem={props.removeItem}
+        remove={props.remove}
       />
     </li>
   );
@@ -57,7 +57,7 @@ class ShopList extends React.Component {
         <div className="list">
           <ShopItem
             items={this.props.list}
-            removeItem={this.props.remove}
+            remove={this.props.remove}
           />
         </div>
       </div>

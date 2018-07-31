@@ -5,10 +5,14 @@ import { deleteShopItem } from '../actions/shopItem';
 import ShopList from '../components/ShopList';
 
 class ShopListContainer extends React.Component {
+  
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
-    fetchShopList();
-  };
+    this.props.update();
+  }
 
   render() {
     if (this.props.isFetching) {
@@ -16,17 +20,12 @@ class ShopListContainer extends React.Component {
         <div>Loading ...</div>
       );
     } else {
-      if (this.props.list) {
-        return (
-          <ShopList {...this.props} />
-        );
-      } else {
-        return (
-          <div>ERROR</div>
-        );
-      };
+      return (
+        <ShopList {...this.props} />
+      );
     }
-  };
+  }
+
 };
 
 const mapStateToProps = state => {
