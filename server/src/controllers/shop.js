@@ -13,8 +13,8 @@ const getById = async (req, res) => {
 };
 
 const add = async (req, res) => {
-  const response = await models.shop.add(req.body.name);
-  res.json({ response });
+  const data = await models.shop.add(req.body.name);
+  res.json({ data });
 };
 
 const del = async (req, res) => {

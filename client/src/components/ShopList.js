@@ -52,7 +52,7 @@ class ShopList extends React.Component {
         <Header
           title="Название"
           back="/"
-          add="/shop/item/"
+          add="/shop/add"
         />
         <div className="list">
           <ShopItem

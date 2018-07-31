@@ -20,8 +20,14 @@ const shopItem = (state = _initialState, action) => {
       isFetching: false,
       data: action.data.data.value ? action.data.data.value : {}
     };
+  case 'SHOP_ITEM_ADD_SUCCESS':
+    return {
+      isFetching: false,
+      data: {}
+    };
   case 'SHOP_ITEM_FETCH_ERROR':
   case 'SHOP_ITEM_UPDATE_ERROR':
+  case 'SHOP_ITEM_ADD_ERROR':
     return {
       isFetching: false,
       data: action.error

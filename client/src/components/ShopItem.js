@@ -9,10 +9,9 @@ class ShopItem extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
     this.state = {
-      _id: props.item._id,
-      name: props.item.name
+      _id: props.item._id ? props.item._id : '',
+      name: props.item.name ? props.item.name : ''
     };
 
     this.handleChange = this.handleChange.bind(this);

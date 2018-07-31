@@ -51,13 +51,17 @@ export const deleteShopItem = id => async (dispatch) => {
   }
 };
 
-export const addShopItem = data => async (dispatch) => {
+export const addShopItem = name => async (dispatch) => {
   try {
-    console.log('Action DATA:', data);
-    const res = await axios.post('http://localhost:8000/api/shop', data);
-    console.log('RES', res);
+    const data = await axios.post('http://localhost:8000/api/shop', name);
+    return dispatch({
+      type: 'SHOP_ITEM_ADD_SUCCESS'
+    });
   } catch(error) {
-    console.error(error);
+    return dispatch({
+      type: 'SHOP_ITEM_ADD_ERROR',
+      error
+    });
   }
 };
 
