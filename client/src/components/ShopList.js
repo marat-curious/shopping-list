@@ -12,7 +12,7 @@ const Button = withRouter(({ history, type, id, remove }) => {
       className={ `list__button list__button_${type}` }
       onClick={
         () => type === 'edit'
-          ? history.push(`/shop/${type}/${id}`)
+          ? history.push(`/shop/item/${id}`)
           : remove(id)
       }
     >

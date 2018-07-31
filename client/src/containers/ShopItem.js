@@ -7,26 +7,26 @@ class ShopItemContainer extends React.Component {
 
   componentDidMount() {
     if (this.props.match.params.id) {
-      fetchShopItem(this.props.match.params.id);
+      this.props.get();
     }
   };
 
   render() {
     if (this.props.isFetching) {
       return (
-        <ShopItem
-          {...this.props}
-        />
+        <div>Loading ...</div>
       );
     } else {
       return (
-        <div>Loading ...</div>
+        <ShopItem
+          {...this.props}
+        />
       );
     }
   }
 };
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = state => {
   return {
     item: state.shopItem.data,
     isFetching: state.shopItem.isFetching

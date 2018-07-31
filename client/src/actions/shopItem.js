@@ -3,13 +3,14 @@
 import axios from 'axios';
 import { fetchShopList } from './shopList';
 
-const _fetchingShopItem = () => {
+const _requestShopItem = () => {
   return {
     type: 'SHOP_ITEM_REQUEST'
   };
 };
 
 export const fetchShopItem = id => async (dispatch) => {
+  dispatch(_requestShopItem());
   try {
     const data = await axios.get(`http://localhost:8000/api/shop/${id}`);
     return dispatch({

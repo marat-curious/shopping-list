@@ -9,9 +9,9 @@ class ShopEdit extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      _id: this.props.item._id ? this.props.item._id : '',
-      _name: this.props.item.name ? this.props.item.name : '',
-      name: this.props.item.name ? this.props.item.name : ''
+      _id: props.item._id ? props.item._id : '',
+      _name: props.item.name ? props.item.name : '',
+      name: props.item.name ? props.item.name : ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -25,7 +25,6 @@ class ShopEdit extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     await this.props.update(this.state);
-    await this.props.list();
     this.props.history.push('/shop');
   };
 
