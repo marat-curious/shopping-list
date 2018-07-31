@@ -5,7 +5,7 @@ const _initialState = {
   }
 };
 
-const shopItem: = (state = _initialState, action) => {
+const shopItem = (state = _initialState, action) => {
   switch(action.type) {
   case 'SHOP_ITEM_REQUEST':
     return {

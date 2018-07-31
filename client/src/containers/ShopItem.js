@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchShopItem, updateShopItem } from '../actions/shopItem';
 import ShopItem from '../components/ShopItem';
 
-class ShopEditContainer extends React.Component {
+class ShopItemContainer extends React.Component {
 
   componentDidMount() {
     if (this.props.match.params.id) {
@@ -14,7 +14,7 @@ class ShopEditContainer extends React.Component {
   render() {
     if (this.props.isFetching) {
       return (
-        <ShopEdit
+        <ShopItem
           {...this.props}
         />
       );
@@ -40,4 +40,4 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopEditContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ShopItemContainer);
