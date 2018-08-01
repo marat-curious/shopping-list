@@ -17,7 +17,7 @@ class CategoryAddContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    item: state.shopItem.data
+    item: state.categoryItem.data
   };
 };
 

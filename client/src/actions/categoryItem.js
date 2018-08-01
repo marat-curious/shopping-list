@@ -1,7 +1,7 @@
 // @flow
 
 import axios from 'axios';
-import { fetchCategoryList } from './CategotyList';
+import { fetchCategoryList } from './categoryList';
 
 const _requestCategoryItem = () => {
   return {

@@ -30,8 +30,8 @@ class CategoryItemContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    item: state.shopItem.data,
-    isFetching: state.shopItem.isFetching
+    item: state.categoryItem.data,
+    isFetching: state.categoryItem.isFetching
   };
 };
 

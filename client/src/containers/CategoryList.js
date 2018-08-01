@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCategoryList } from '../actions/categoryList';
-import { deleteShopItem } from '../actions/shopItem';
+import { deleteCategoryItem } from '../actions/categoryItem';
 import CategoryList from '../components/CategoryList';
 
 class CategoryListContainer extends React.Component {
@@ -30,15 +30,15 @@ class CategoryListContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    list: state.shopList.data,
-    isFetching: state.shopList.isFetching
+    list: state.categoryList.data,
+    isFetching: state.categoryList.isFetching
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     update: () => dispatch(fetchCategoryList()),
-    remove: id => dispatch(deleteShopItem(id))
+    remove: id => dispatch(deleteCategoryItem(id))
   };
 };
 

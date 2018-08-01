@@ -35,7 +35,7 @@ class CategoryItem extends React.Component {
       <div className="page">
         <Header
           title="Название"
-          back="/shop"
+          back="/category"
         />
         <form
           className="edit"

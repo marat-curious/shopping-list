@@ -20,7 +20,7 @@ const shopItem = (state = _initialState, action) => {
   case 'SHOP_ITEM_UPDATE_SUCCESS':
     return {
       isFetching: false,
-      data: action.data.data.value ? action.data.data.value : {}
+      data: {}
     };
   case 'SHOP_ITEM_ADD_SUCCESS':
     return {

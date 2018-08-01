@@ -20,7 +20,7 @@ const categoryItem = (state = _initialState, action) => {
   case 'CATEGORY_ITEM_UPDATE_SUCCESS':
     return {
       isFetching: false,
-      data: action.data.data.value ? action.data.data.value : {}
+      data: {}
     };
   case 'CATEGORY_ITEM_ADD_SUCCESS':
     return {

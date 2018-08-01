@@ -9,6 +9,8 @@ import ShopList from '../containers/ShopList';
 import ShopItem from '../containers/ShopItem';
 import ShopAdd from '../containers/ShopAdd';
 import CategoryList from '../containers/CategoryList';
+import CategoryItem from '../containers/CategoryItem';
+import CategoryAdd from '../containers/CategoryAdd';
 import Product from './Product';
 import Buy from './Buy';
 
@@ -26,10 +28,15 @@ class App extends React.Component {
         <hr/>
 
         <Route exact path="/" component={Buy}/>
+
         <Route exact path="/shop" component={ShopList}/>
-        <Route path="/shop/item/:id?" component={ShopItem}/>
         <Route path="/shop/add" component={ShopAdd}/>
-        <Route path="/category" component={CategoryList}/>
+        <Route path="/shop/item/:id?" component={ShopItem}/>
+
+        <Route exact path="/category" component={CategoryList}/>
+        <Route path="/category/add" component={CategoryAdd}/>
+        <Route path="/category/item/:id?" component={CategoryItem}/>
+
         <Route path="/product" component={Product}/>
       </div>
     </Router>
