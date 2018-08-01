@@ -12,7 +12,7 @@ const Button = withRouter(({ history, type, id, remove }) => {
       className={ `list__button list__button_${type}` }
       onClick={
         () => type === 'edit'
-          ? history.push(`/shop/item/${id}`)
+          ? history.push(`/category/item/${id}`)
           : remove(id)
       }
     >
@@ -24,7 +24,7 @@ const Button = withRouter(({ history, type, id, remove }) => {
   );
 });
 
-const ShopItem = props => {
+const CategoryItem = props => {
   const items = props.items.map((item) =>
     <li
       key={item._id}
@@ -45,17 +45,17 @@ const ShopItem = props => {
   return <ul>{items}</ul>;
 };
 
-class ShopList extends React.Component {
+class CategoryList extends React.Component {
   render() {
     return (
       <div className="page">
         <Header
-          title="Магазины"
+          title="Категории"
           back="/"
-          add="/shop/add"
+          add="/category/add"
         />
         <div className="list">
-          <ShopItem
+          <CategoryItem
             items={this.props.list}
             remove={this.props.remove}
           />
@@ -65,4 +65,4 @@ class ShopList extends React.Component {
   }
 };
 
-export default ShopList;
+export default CategoryList;

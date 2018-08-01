@@ -8,7 +8,7 @@ import {
 import ShopList from '../containers/ShopList';
 import ShopItem from '../containers/ShopItem';
 import ShopAdd from '../containers/ShopAdd';
-import Category from './Category';
+import CategoryList from '../containers/CategoryList';
 import Product from './Product';
 import Buy from './Buy';
 
@@ -29,7 +29,7 @@ class App extends React.Component {
         <Route exact path="/shop" component={ShopList}/>
         <Route path="/shop/item/:id?" component={ShopItem}/>
         <Route path="/shop/add" component={ShopAdd}/>
-        <Route path="/category" component={Category}/>
+        <Route path="/category" component={CategoryList}/>
         <Route path="/product" component={Product}/>
       </div>
     </Router>
