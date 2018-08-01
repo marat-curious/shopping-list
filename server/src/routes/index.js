@@ -20,6 +20,9 @@ router.route('/category')
   .delete(controllers.category.del)
   .put(controllers.category.update);
 
+router.route('/category/:id')
+  .get(controllers.category.getById);
+
 router.route('/product')
   .get(controllers.product.get)
   .post(controllers.product.add)

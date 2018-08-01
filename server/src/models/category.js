@@ -1,5 +1,6 @@
 // @flow
 
+import { ObjectID } from 'mongodb';
 import connection from './connection';
 
 const get = async () => {
@@ -7,6 +8,18 @@ const get = async () => {
     const { client, db } = await connection.connect();
     const collection = db.collection('category');
     const response = await collection.find().toArray();
+    client.close();
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+const getById = async id => {
+  try {
+    const { client, db } = await connection.connect();
+    const collection = db.collection('category');
+    const response = await collection.findOne({ _id: new ObjectID(id) });
     client.close();
     return response;
   } catch (error) {
@@ -34,11 +47,11 @@ const add = async name => {
   }
 };
 
-const del = async name => {
+const del = async id => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('category');
-    const response  = await collection.findOneAndDelete({ name });
+    const response  = await collection.findOneAndDelete({ _id: new ObjectID(id) });
     client.close();
     return response;
   } catch (error) {
@@ -46,11 +59,15 @@ const del = async name => {
   }
 };
 
-const update = async name => {
+const update = async data => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('category');
-    const response  = await collection.findOneAndUpdate({ name: name.current }, { $set: { name: name.new }});
+    const response  = await collection.findOneAndUpdate(
+      { _id: new ObjectID(data._id) },
+      { $set: { name: data.name }},
+      { returnOriginal: false }
+    );
     client.close();
     return response;
   } catch (error) {
@@ -60,6 +77,7 @@ const update = async name => {
 
 module.exports = {
   get,
+  getById,
   add,
   del,
   update
