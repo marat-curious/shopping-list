@@ -2,10 +2,10 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchShopItem, updateShopItem } from '../actions/shopItem';
-import ShopItem from '../components/ShopItem';
+import { fetchCategoryItem, updateCategoryItem } from '../actions/categoryItem';
+import CategoryItem from '../components/CategoryItem';
 
-class ShopItemContainer extends React.Component {
+class CategoryItemContainer extends React.Component {
 
   componentDidMount() {
     if (this.props.match.params.id) {
@@ -20,7 +20,7 @@ class ShopItemContainer extends React.Component {
       );
     } else {
       return (
-        <ShopItem
+        <CategoryItem
           {...this.props}
         />
       );
@@ -37,9 +37,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    get: () => dispatch(fetchShopItem(ownProps.match.params.id)),
-    update: data => dispatch(updateShopItem(data)),
+    get: () => dispatch(fetchCategoryItem(ownProps.match.params.id)),
+    update: data => dispatch(updateCategoryItem(data)),
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopItemContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryItemContainer);

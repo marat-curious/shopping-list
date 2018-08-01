@@ -6,7 +6,7 @@ import Header from './Header';
 import Check from '../assets/icons/check_circle.svg';
 import '../styles/edit.css';
 
-class ShopItem extends React.Component {
+class CategoryItem extends React.Component {
 
   constructor(props) {
     super(props);
@@ -27,7 +27,7 @@ class ShopItem extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     await this.props.update(this.state);
-    this.props.history.push('/shop');
+    this.props.history.push('/category');
   }
 
   render() {
@@ -64,4 +64,4 @@ class ShopItem extends React.Component {
   }
 };
 
-export default withRouter(ShopItem);
+export default withRouter(CategoryItem);
