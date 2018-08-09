@@ -11,7 +11,7 @@ import ShopAdd from '../containers/ShopAdd';
 import CategoryList from '../containers/CategoryList';
 import CategoryItem from '../containers/CategoryItem';
 import CategoryAdd from '../containers/CategoryAdd';
-import ProductList from '../components/ProductList';
+import ProductList from '../containers/ProductList';
 import Buy from './Buy';
 
 class App extends React.Component {
