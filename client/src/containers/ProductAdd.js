@@ -3,10 +3,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCategoryList } from '../actions/categoryList';
-import { fetchProductList } from '../actions/productList';
-import ProductList from '../components/ProductList';
+//import { addProductItem } from '../actions/categoryItem';
+import ProductItem from '../components/ProductItem';
 
-class ProductListContainer extends React.Component {
+class ProductAddContainer extends React.Component {
 
   constructor(props) {
     super(props);
@@ -23,28 +23,27 @@ class ProductListContainer extends React.Component {
       );
     } else {
       return (
-        <ProductList {...this.props} />
+        <ProductItem {...this.props} />
       );
     }
   }
-
 };
 
 const mapStateToProps = state => {
   return {
+    //item: state.categoryItem.data
+    item: {},
     categories: state.categoryList.data,
-    isCategoriesFetching: state.categoryList.isFetching,
-    products: state.productList.data,
-    isProductsFetching: state.productList.isFetching
+    isCategoriesFetching: state.categoryList.isFetching
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     updateCategories: () => dispatch(fetchCategoryList()),
-    updateProducts: categoryId => dispatch(fetchProductList(categoryId)),
-    remove: () => dispatch(() => true)
+    //update: data => dispatch(addProductItem(data))
+    update: data => dispatch((data) => console.log(data))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ProductListContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductAddContainer);

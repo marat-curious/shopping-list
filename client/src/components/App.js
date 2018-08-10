@@ -12,6 +12,7 @@ import CategoryList from '../containers/CategoryList';
 import CategoryItem from '../containers/CategoryItem';
 import CategoryAdd from '../containers/CategoryAdd';
 import ProductList from '../containers/ProductList';
+import ProductAdd from '../containers/ProductAdd';
 import Buy from './Buy';
 
 class App extends React.Component {
@@ -38,6 +39,7 @@ class App extends React.Component {
         <Route path="/category/item/:id?" component={CategoryItem}/>
 
         <Route exact path="/product" component={ProductList}/>
+        <Route path="/product/add" component={ProductAdd}/>
       </div>
     </Router>
   }
