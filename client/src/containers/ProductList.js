@@ -33,7 +33,9 @@ class ProductListContainer extends React.Component {
 const mapStateToProps = state => {
   return {
     categories: state.categoryList.data,
-    isCategoriesFetching: state.categoryList.isFetching
+    isCategoriesFetching: state.categoryList.isFetching,
+    products: state.productList.data,
+    isProductsFetching: state.productList.isFetching
   };
 };
 

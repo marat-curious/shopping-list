@@ -3,8 +3,8 @@
 import models from '../models';
 
 const get = async (req, res) => {
-  const response = await models.product.get(req.body.product.category);
-  res.json({ response });
+  const data = await models.product.get(req.body.category);
+  res.json({ data });
 };
 
 const add = async (req, res) => {
