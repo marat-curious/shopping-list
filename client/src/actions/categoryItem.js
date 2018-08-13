@@ -64,4 +64,3 @@ export const addCategoryItem = name => async (dispatch) => {
     });
   }
 };
-

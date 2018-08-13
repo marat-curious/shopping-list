@@ -38,7 +38,8 @@ class ProductItem extends React.Component {
 
     this.state = {
       _id: props.item._id ? props.item._id : '',
-      name: props.item.name ? props.item.name : ''
+      name: props.item.name ? props.item.name : '',
+      category: (props.categories && props.categories.length) > 0 ? props.categories[0].name : ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -52,7 +53,7 @@ class ProductItem extends React.Component {
   async handleSubmit(event) {
     event.preventDefault();
     await this.props.update(this.state);
-    this.props.history.push('/category');
+    this.props.history.push('/product');
   }
 
   render() {

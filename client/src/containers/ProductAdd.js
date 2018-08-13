@@ -3,7 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCategoryList } from '../actions/categoryList';
-//import { addProductItem } from '../actions/categoryItem';
+import { addProductItem } from '../actions/productItem';
 import ProductItem from '../components/ProductItem';
 
 class ProductAddContainer extends React.Component {
@@ -41,8 +41,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     updateCategories: () => dispatch(fetchCategoryList()),
-    //update: data => dispatch(addProductItem(data))
-    update: data => dispatch((data) => console.log(data))
+    update: data => dispatch(addProductItem(data))
   };
 };
 

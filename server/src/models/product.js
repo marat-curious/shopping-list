@@ -24,17 +24,17 @@ const get = async category => {
  * @param {Object} product - Product: { name: "product_name", category: "category_name" }
  */
 
-const add = async product => {
+const add = async data => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('product');
-    const product = await collection.findOne({ name: product.name });
+    const product = await collection.findOne({ name: data.name });
     let response;
 
     if (product) {
       response = { err: `record { name: ${name} } already exist in 'product' collection` };
     } else {
-      response = await db.collection('product').insertOne({ name: product.name, category: product.category });
+      response = await db.collection('product').insertOne({ name: data.name, category: data.category });
     }
 
     client.close();

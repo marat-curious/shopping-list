@@ -8,8 +8,8 @@ const get = async (req, res) => {
 };
 
 const add = async (req, res) => {
-  const response = await models.product.add(req.body.product);
-  res.json({ response });
+  const data = await models.product.add(req.body);
+  res.json({ data });
 };
 
 const del = async (req, res) => {
