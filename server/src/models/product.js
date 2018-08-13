@@ -11,7 +11,12 @@ const get = async category => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('product');
-    const response = await collection.find({ category }).toArray();
+    let response;
+    if (Object.keys(category).length === 0) {
+      response = await collection.find().toArray();
+    } else {
+      response = await collection.find(category).toArray();
+    }
     client.close();
     return response;
   } catch (error) {

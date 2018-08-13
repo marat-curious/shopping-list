@@ -14,6 +14,7 @@ class ProductListContainer extends React.Component {
 
   componentDidMount() {
     this.props.updateCategories();
+    this.props.updateProducts();
   }
 
   render() {
@@ -42,7 +43,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     updateCategories: () => dispatch(fetchCategoryList()),
-    updateProducts: categoryId => dispatch(fetchProductList(categoryId)),
+    updateProducts: category => dispatch(fetchProductList(category)),
     remove: () => dispatch(() => true)
   };
 };

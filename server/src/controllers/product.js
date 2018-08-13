@@ -3,7 +3,7 @@
 import models from '../models';
 
 const get = async (req, res) => {
-  const data = await models.product.get(req.body.category);
+  const data = await models.product.get(req.query);
   res.json({ data });
 };
 
