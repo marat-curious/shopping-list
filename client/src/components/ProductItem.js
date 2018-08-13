@@ -12,22 +12,14 @@ const selectStyle = {
   background: 'no-repeat center right/20px url(' + Arrow + ')',
 };
 
-const CategorySelect = props => {
-  const options = props.categories.map(item =>
+const CategoryList = props => {
+  return props.categories.map(item =>
     <option
       key={item._id}
       value={item.name}
     >
       {item.name}
     </option>
-  );
-
-  return (
-    <div className="list__select list__select_categories">
-      <select style={selectStyle}>
-        {options}
-      </select>
-    </div>
   );
 };
 
@@ -67,10 +59,16 @@ class ProductItem extends React.Component {
           className="edit"
           onSubmit={this.handleSubmit}
         >
-          <CategorySelect
-            categories={this.props.categories}
-            update={this.props.updateProducts}
-          />
+          <div className="list__select list__select_categories">
+            <select
+              onChange={(event) => this.setState({ category: event.target.value })}
+              style={selectStyle}
+            >
+              <CategoryList
+                categories={this.props.categories}
+              />
+            </select>
+          </div>
           <input
             type="text"
             name="name"

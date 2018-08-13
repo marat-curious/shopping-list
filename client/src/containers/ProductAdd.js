@@ -31,7 +31,7 @@ class ProductAddContainer extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    //item: state.categoryItem.data
+    //item: state.categoryItem.data,
     item: {},
     categories: state.categoryList.data,
     isCategoriesFetching: state.categoryList.isFetching
