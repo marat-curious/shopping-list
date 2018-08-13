@@ -84,7 +84,7 @@ const del = async name => {
  * @param {Object} product - Product: { name: "product_name", category: "category_name" }
  */
 
-const update = async product => {
+const update = async data => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('product');

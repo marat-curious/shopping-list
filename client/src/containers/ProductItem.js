@@ -31,7 +31,6 @@ class ProductItemContainer extends React.Component {
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     item: state.productItem.data,
     isFetching: state.productItem.isFetching,

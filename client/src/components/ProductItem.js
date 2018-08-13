@@ -31,7 +31,7 @@ class ProductItem extends React.Component {
     this.state = {
       _id: props.item._id ? props.item._id : '',
       name: props.item.name ? props.item.name : '',
-      category: (props.categories && props.categories.length) > 0 ? props.categories[0].name : ''
+      category: (props.categories && props.categories.length > 0) ? props.categories[0].name : ''
     };
 
     this.handleChange = this.handleChange.bind(this);
