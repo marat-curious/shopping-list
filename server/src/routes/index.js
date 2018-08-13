@@ -29,6 +29,9 @@ router.route('/product')
   .delete(controllers.product.del)
   .put(controllers.product.update);
 
+router.route('/product/:id')
+  .get(controllers.product.getById);
+
 router.route('/buy')
   .get(controllers.buy.get)
   .post(controllers.buy.add)

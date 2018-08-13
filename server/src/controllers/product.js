@@ -7,23 +7,29 @@ const get = async (req, res) => {
   res.json({ data });
 };
 
+const getById = async (req, res) => {
+  const data = await models.product.getById(req.params.id);
+  res.json({ data });
+};
+
 const add = async (req, res) => {
   const data = await models.product.add(req.body);
   res.json({ data });
 };
 
 const del = async (req, res) => {
-  const response = await models.product.del(req.body.product.name);
-  res.json({ response });
+  const data = await models.product.del(req.body.product.name);
+  res.json({ data });
 };
 
 const update = async (req, res) => {
-  const response = await models.product.update({ current: req.body.product.nameCur, new: req.body.product.nameNew});
-  res.json({ response });
+  const data = await models.product.update(req.body);
+  res.json({ data });
 }
 
 module.exports = {
   get,
+  getById,
   add,
   del,
   update

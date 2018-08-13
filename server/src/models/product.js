@@ -1,5 +1,6 @@
 // @flow
 
+import { ObjectID } from 'mongodb';
 import connection from './connection';
 
 /**
@@ -17,6 +18,18 @@ const get = async category => {
     } else {
       response = await collection.find(category).toArray();
     }
+    client.close();
+    return response;
+  } catch (error) {
+    return error;
+  }
+};
+
+const getById = async id => {
+  try {
+    const { client, db } = await connection.connect();
+    const collection = db.collection('product');
+    const response = await collection.findOne({ '_id': new ObjectID(id) });
     client.close();
     return response;
   } catch (error) {
@@ -75,7 +88,11 @@ const update = async product => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('product');
-    const response  = await collection.findOneAndUpdate({ name: product.current }, { $set: { name: product.new }});
+    const response  = await collection.findOneAndUpdate(
+      { _id: new ObjectID(data._id) },
+      { $set: { name: data.name, category: data.category }},
+      { returnOriginal: false }
+    );
     client.close();
     return response;
   } catch (error) {
@@ -85,6 +102,7 @@ const update = async product => {
 
 module.exports = {
   get,
+  getById,
   add,
   del,
   update
