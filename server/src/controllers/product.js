@@ -18,7 +18,7 @@ const add = async (req, res) => {
 };
 
 const del = async (req, res) => {
-  const data = await models.product.del(req.body.product.name);
+  const data = await models.product.del(req.body.id);
   res.json({ data });
 };
 

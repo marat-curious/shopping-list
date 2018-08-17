@@ -67,11 +67,11 @@ const add = async data => {
  * @param {String} name - Product name
  */
 
-const del = async name => {
+const del = async id => {
   try {
     const { client, db } = await connection.connect();
     const collection = db.collection('product');
-    const response  = await collection.findOneAndDelete({ name });
+    const response  = await collection.findOneAndDelete({ _id: new ObjectID(id) });
     client.close();
     return response;
   } catch (error) {

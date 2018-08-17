@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCategoryList } from '../actions/categoryList';
 import { fetchProductList } from '../actions/productList';
+import { deleteProductItem } from '../actions/productItem';
 import ProductList from '../components/ProductList';
 
 class ProductListContainer extends React.Component {
@@ -44,7 +45,7 @@ const mapDispatchToProps = dispatch => {
   return {
     updateCategories: () => dispatch(fetchCategoryList()),
     updateProducts: category => dispatch(fetchProductList(category)),
-    remove: () => dispatch(() => true)
+    remove: id => dispatch(deleteProductItem(id))
   };
 };
 
